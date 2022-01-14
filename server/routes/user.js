@@ -1,6 +1,5 @@
 const express=require('express')
 const db=require('../db')
-const utils=require('../utils')
 const router=express.Router()
 
 router.get('/getAll/',(request,response)=>{
@@ -8,9 +7,9 @@ router.get('/getAll/',(request,response)=>{
     const connection1=db.openConnection()
     connection1.query(statement,(error,result)=>{
         if(error){
-            response.send(utils.createResult(error,null))
+            response.send(error)
         }else{
-            response.send(utils.createResult(null,result))
+            response.send(result)
         }
     })
 
@@ -23,7 +22,7 @@ router.post('/add/',(request,response)=>{
     connection.query(statement,(error,data)=>{
         if(error){
             console.log(error)
-            response.send(utils.createResult(error))
+            response.send(error)
         }
         else{
             if(data.length==0){
