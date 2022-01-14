@@ -1,0 +1,10 @@
+const express = require('express')
+const routerUser=require('./routes/user')
+const cors=require('cors')
+const app=express()
+app.use(express.json())
+app.use(cors('*'))
+app.use('/emp', routerUser)
+app.listen(4000, "0.0.0.0",()=>{
+    console.log('server started on port no 4000')
+})

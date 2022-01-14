@@ -1,0 +1,8 @@
+version: '3'
+services:
+  server:
+    build: ./server/
+    ports:
+      - 4001:4000
+  mydb1:
+    build: ./database/
